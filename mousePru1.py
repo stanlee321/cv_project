@@ -1,20 +1,18 @@
 import numpy as np
 import cv2
 import argparse 
-# initialize the list of reference points and boolean indicating
-# whether cropping is being performed or not
+
 refPt = []
 cropping = False
 
 def click_and_crop(event, x, y, flags, param):
-	global refPt, croppingi 
+    global refPt, croppingi
+
     if event == cv2.EVENT_LBUTTONDOWN:
         refPt = [(x,y)]
         cropping = True
- 
-	# check to see if the left mouse button was released
-	elif event == cv2.EVENT_LBUTTONUP:
-        # record the ending (x, y) coordinates and indicate that
+    elif event == cv2.EVENT_LBUTTONUP:
+    # record the ending (x, y) coordinates and indicate that
         # the cropping operation is finished
         refPt.append((x, y))
         cropping = False
